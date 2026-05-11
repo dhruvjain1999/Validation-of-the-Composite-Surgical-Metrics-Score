@@ -1,0 +1,1180 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={SDSC},
+  pdfauthor={Dhruv},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{SDSC}
+\author{Dhruv}
+\date{2026-05-07}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+\CommentTok{\# 1. Load Libraries}
+\CommentTok{\# {-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
+
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v dplyr     1.1.4     v readr     2.1.5
+## v forcats   1.0.0     v stringr   1.5.1
+## v ggplot2   3.5.1     v tibble    3.2.1
+## v lubridate 1.9.3     v tidyr     1.3.1
+## v purrr     1.0.2     
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(janitor)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'janitor'
+## 
+## The following objects are masked from 'package:stats':
+## 
+##     chisq.test, fisher.test
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(skimr)}
+\FunctionTok{library}\NormalTok{(janitor)}
+\CommentTok{\#install.packages("skimr")}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(plotly)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'plotly'
+## 
+## The following object is masked from 'package:ggplot2':
+## 
+##     last_plot
+## 
+## The following object is masked from 'package:stats':
+## 
+##     filter
+## 
+## The following object is masked from 'package:graphics':
+## 
+##     layout
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(car)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: carData
+## 
+## Attaching package: 'car'
+## 
+## The following object is masked from 'package:dplyr':
+## 
+##     recode
+## 
+## The following object is masked from 'package:purrr':
+## 
+##     some
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(tidyr)}
+\FunctionTok{library}\NormalTok{(corrplot)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## corrplot 0.92 loaded
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#tinytex::tlmgr\_repo("https://mirror.ctan.org/systems/texlive/tlnet")}
+\CommentTok{\#tinytex::tlmgr\_install("bookmark")}
+\CommentTok{\#tinytex::reinstall\_tinytex()}
+\CommentTok{\#tinytex::parse\_install("SDSC.log")}
+\CommentTok{\#install.packages("tinytex")}
+\CommentTok{\#tinytex::install\_tinytex()}
+
+\CommentTok{\#install.packages("tinytex", repos = "https://r{-}project.org")}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Data Importing}\label{data-importing}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{clinical }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"./Copy of ds\_take\_home\_clinical\_outcomes.csv {-} Sheet1.csv"}\NormalTok{)}
+\NormalTok{procedure }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"./ds\_take\_home\_procedure\_metrics.csv {-} Sheet1.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{1st data Visulas}\label{st-data-visulas}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# View(clinical)}
+\FunctionTok{nrow}\NormalTok{(clinical) }\CommentTok{\# 120 rows found}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 120
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ncol}\NormalTok{(clinical) }\CommentTok{\# 5 column in the data }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(clinical)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  procedure_id        complication     complication_severity complete_resection
+##  Length:120         Min.   :0.00000   Length:120            Min.   :0.0000    
+##  Class :character   1st Qu.:0.00000   Class :character      1st Qu.:1.0000    
+##  Mode  :character   Median :0.00000   Mode  :character      Median :1.0000    
+##                     Mean   :0.09167                         Mean   :0.8659    
+##                     3rd Qu.:0.00000                         3rd Qu.:1.0000    
+##                     Max.   :1.00000                         Max.   :1.0000    
+##                                                             NA's   :38        
+##  hospital_stay_days
+##  Min.   :1.400     
+##  1st Qu.:2.300     
+##  Median :2.800     
+##  Mean   :3.065     
+##  3rd Qu.:3.700     
+##  Max.   :6.300     
+## 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{glimpse}\NormalTok{(clinical)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 120
+## Columns: 5
+## $ procedure_id          <chr> "proc_0001", "proc_0002", "proc_0003", "proc_000~
+## $ complication          <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~
+## $ complication_severity <chr> "", "", "", "", "", "", "", "", "", "", "", "", ~
+## $ complete_resection    <int> 1, 1, NA, 1, NA, 1, NA, NA, 1, 1, NA, 0, NA, 1, ~
+## $ hospital_stay_days    <dbl> 1.6, 4.2, 3.2, 2.6, 3.2, 2.5, 1.7, 2.6, 3.2, 2.9~
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(clinical,}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   procedure_id complication complication_severity complete_resection
+## 1    proc_0001            0                                        1
+## 2    proc_0002            0                                        1
+##   hospital_stay_days
+## 1                1.6
+## 2                4.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# View(procedure)}
+\FunctionTok{nrow}\NormalTok{(procedure)}\CommentTok{\# 300 rows found }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 300
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ncol}\NormalTok{(procedure)}\CommentTok{\# 12 column found}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 12
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(procedure)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  procedure_id        surgeon_id        procedure_length_min path_efficiency 
+##  Length:300         Length:300         Min.   : 30.10       Min.   :0.0916  
+##  Class :character   Class :character   1st Qu.: 77.78       1st Qu.:0.3518  
+##  Mode  :character   Mode  :character   Median :110.00       Median :0.4461  
+##                                        Mean   :121.42       Mean   :0.4411  
+##                                        3rd Qu.:152.60       3rd Qu.:0.5357  
+##                                        Max.   :411.80       Max.   :0.9017  
+##  movement_smoothness idle_time_pct    tool_switching_per_min
+##  Min.   :0.5505      Min.   : 0.000   Min.   :  5.00        
+##  1st Qu.:0.6724      1st Qu.: 3.600   1st Qu.: 58.77        
+##  Median :0.7121      Median : 5.150   Median : 81.05        
+##  Mean   :0.7162      Mean   : 5.047   Mean   : 79.62        
+##  3rd Qu.:0.7641      3rd Qu.: 6.500   3rd Qu.:101.75        
+##  Max.   :0.9020      Max.   :12.500   Max.   :162.30        
+##  site_visibility_pct two_tools_pct       speed       workspace_coverage
+##  Min.   : 62.10      Min.   : 3.80   Min.   :0.100   Min.   :27.50     
+##  1st Qu.: 83.20      1st Qu.:23.80   1st Qu.:0.996   1st Qu.:51.08     
+##  Median : 87.65      Median :31.00   Median :1.347   Median :60.10     
+##  Mean   : 87.18      Mean   :30.61   Mean   :1.363   Mean   :59.55     
+##  3rd Qu.: 91.53      3rd Qu.:37.33   3rd Qu.:1.704   3rd Qu.:67.58     
+##  Max.   :100.00      Max.   :59.60   Max.   :2.807   Max.   :95.00     
+##  composite_score
+##  Min.   :45.90  
+##  1st Qu.:60.70  
+##  Median :64.35  
+##  Mean   :64.66  
+##  3rd Qu.:68.55  
+##  Max.   :81.90
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{glimpse}\NormalTok{(procedure)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 300
+## Columns: 12
+## $ procedure_id           <chr> "proc_0001", "proc_0002", "proc_0003", "proc_00~
+## $ surgeon_id             <chr> "surgeon_07", "surgeon_10", "surgeon_08", "surg~
+## $ procedure_length_min   <dbl> 162.8, 30.4, 192.0, 77.4, 56.5, 134.3, 84.9, 84~
+## $ path_efficiency        <dbl> 0.4277, 0.3767, 0.6208, 0.5592, 0.4969, 0.2865,~
+## $ movement_smoothness    <dbl> 0.7103, 0.7692, 0.6920, 0.7236, 0.7656, 0.5505,~
+## $ idle_time_pct          <dbl> 1.0, 8.6, 5.2, 5.0, 5.2, 6.0, 7.4, 4.0, 2.1, 6.~
+## $ tool_switching_per_min <dbl> 99.9, 89.4, 81.9, 66.2, 80.3, 132.6, 72.8, 58.7~
+## $ site_visibility_pct    <dbl> 78.7, 81.3, 72.0, 88.5, 92.7, 90.8, 84.3, 99.4,~
+## $ two_tools_pct          <dbl> 31.5, 36.9, 21.5, 39.2, 42.6, 38.1, 30.9, 35.7,~
+## $ speed                  <dbl> 1.4904, 0.9182, 1.2085, 0.9182, 1.2040, 2.0312,~
+## $ workspace_coverage     <dbl> 76.2, 62.0, 49.5, 52.0, 69.8, 56.9, 42.6, 69.8,~
+## $ composite_score        <dbl> 60.7, 65.7, 63.6, 68.8, 70.1, 57.3, 54.8, 65.7,~
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(procedure,}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   procedure_id surgeon_id procedure_length_min path_efficiency
+## 1    proc_0001 surgeon_07                162.8          0.4277
+## 2    proc_0002 surgeon_10                 30.4          0.3767
+##   movement_smoothness idle_time_pct tool_switching_per_min site_visibility_pct
+## 1              0.7103           1.0                   99.9                78.7
+## 2              0.7692           8.6                   89.4                81.3
+##   two_tools_pct  speed workspace_coverage composite_score
+## 1          31.5 1.4904               76.2            60.7
+## 2          36.9 0.9182               62.0            65.7
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# merging the entire data }
+\NormalTok{outcome\_matrix }\OtherTok{\textless{}{-}} \FunctionTok{left\_join}\NormalTok{(procedure, clinical, }\AttributeTok{by =} \StringTok{"procedure\_id"}\NormalTok{)}
+\CommentTok{\#View(outcome\_matrix)}
+\FunctionTok{nrow}\NormalTok{(outcome\_matrix)}\CommentTok{\# 300 rows found after merging the data set}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 300
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ncol}\NormalTok{(outcome\_matrix)}\CommentTok{\# 16 column (LoL, as expected)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(outcome\_matrix,}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    procedure_id surgeon_id procedure_length_min path_efficiency
+## 1     proc_0001 surgeon_07                162.8          0.4277
+## 2     proc_0002 surgeon_10                 30.4          0.3767
+## 3     proc_0003 surgeon_08                192.0          0.6208
+## 4     proc_0004 surgeon_07                 77.4          0.5592
+## 5     proc_0005 surgeon_01                 56.5          0.4969
+## 6     proc_0006 surgeon_08                134.3          0.2865
+## 7     proc_0007 surgeon_07                 84.9          0.4155
+## 8     proc_0008 surgeon_02                 84.3          0.3870
+## 9     proc_0009 surgeon_02                172.4          0.5015
+## 10    proc_0010 surgeon_09                 66.3          0.5939
+##    movement_smoothness idle_time_pct tool_switching_per_min site_visibility_pct
+## 1               0.7103           1.0                   99.9                78.7
+## 2               0.7692           8.6                   89.4                81.3
+## 3               0.6920           5.2                   81.9                72.0
+## 4               0.7236           5.0                   66.2                88.5
+## 5               0.7656           5.2                   80.3                92.7
+## 6               0.5505           6.0                  132.6                90.8
+## 7               0.7544           7.4                   72.8                84.3
+## 8               0.7291           4.0                   58.7                99.4
+## 9               0.7881           2.1                   20.2                95.0
+## 10              0.6698           6.5                   67.0                91.1
+##    two_tools_pct  speed workspace_coverage composite_score complication
+## 1           31.5 1.4904               76.2            60.7            0
+## 2           36.9 0.9182               62.0            65.7            0
+## 3           21.5 1.2085               49.5            63.6            0
+## 4           39.2 0.9182               52.0            68.8            0
+## 5           42.6 1.2040               69.8            70.1            0
+## 6           38.1 2.0312               56.9            57.3           NA
+## 7           30.9 1.6523               42.6            54.8            0
+## 8           35.7 1.4648               69.8            65.7           NA
+## 9           36.2 0.8635               51.9            77.1            0
+## 10          25.1 1.2808               59.7            64.4            0
+##    complication_severity complete_resection hospital_stay_days
+## 1                                         1                1.6
+## 2                                         1                4.2
+## 3                                        NA                3.2
+## 4                                         1                2.6
+## 5                                        NA                3.2
+## 6                   <NA>                 NA                 NA
+## 7                                         1                2.5
+## 8                   <NA>                 NA                 NA
+## 9                                        NA                1.7
+## 10                                       NA                2.6
+\end{verbatim}
+
+\section{data cleaning}\label{data-cleaning}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(outcome\_matrix)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  procedure_id        surgeon_id        procedure_length_min path_efficiency 
+##  Length:300         Length:300         Min.   : 30.10       Min.   :0.0916  
+##  Class :character   Class :character   1st Qu.: 77.78       1st Qu.:0.3518  
+##  Mode  :character   Mode  :character   Median :110.00       Median :0.4461  
+##                                        Mean   :121.42       Mean   :0.4411  
+##                                        3rd Qu.:152.60       3rd Qu.:0.5357  
+##                                        Max.   :411.80       Max.   :0.9017  
+##                                                                             
+##  movement_smoothness idle_time_pct    tool_switching_per_min
+##  Min.   :0.5505      Min.   : 0.000   Min.   :  5.00        
+##  1st Qu.:0.6724      1st Qu.: 3.600   1st Qu.: 58.77        
+##  Median :0.7121      Median : 5.150   Median : 81.05        
+##  Mean   :0.7162      Mean   : 5.047   Mean   : 79.62        
+##  3rd Qu.:0.7641      3rd Qu.: 6.500   3rd Qu.:101.75        
+##  Max.   :0.9020      Max.   :12.500   Max.   :162.30        
+##                                                             
+##  site_visibility_pct two_tools_pct       speed       workspace_coverage
+##  Min.   : 62.10      Min.   : 3.80   Min.   :0.100   Min.   :27.50     
+##  1st Qu.: 83.20      1st Qu.:23.80   1st Qu.:0.996   1st Qu.:51.08     
+##  Median : 87.65      Median :31.00   Median :1.347   Median :60.10     
+##  Mean   : 87.18      Mean   :30.61   Mean   :1.363   Mean   :59.55     
+##  3rd Qu.: 91.53      3rd Qu.:37.33   3rd Qu.:1.704   3rd Qu.:67.58     
+##  Max.   :100.00      Max.   :59.60   Max.   :2.807   Max.   :95.00     
+##                                                                        
+##  composite_score  complication     complication_severity complete_resection
+##  Min.   :45.90   Min.   :0.00000   Length:300            Min.   :0.0000    
+##  1st Qu.:60.70   1st Qu.:0.00000   Class :character      1st Qu.:1.0000    
+##  Median :64.35   Median :0.00000   Mode  :character      Median :1.0000    
+##  Mean   :64.66   Mean   :0.09167                         Mean   :0.8659    
+##  3rd Qu.:68.55   3rd Qu.:0.00000                         3rd Qu.:1.0000    
+##  Max.   :81.90   Max.   :1.00000                         Max.   :1.0000    
+##                  NA's   :180                             NA's   :218       
+##  hospital_stay_days
+##  Min.   :1.400     
+##  1st Qu.:2.300     
+##  Median :2.800     
+##  Mean   :3.065     
+##  3rd Qu.:3.700     
+##  Max.   :6.300     
+##  NA's   :180
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{glimpse}\NormalTok{(outcome\_matrix)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 300
+## Columns: 16
+## $ procedure_id           <chr> "proc_0001", "proc_0002", "proc_0003", "proc_00~
+## $ surgeon_id             <chr> "surgeon_07", "surgeon_10", "surgeon_08", "surg~
+## $ procedure_length_min   <dbl> 162.8, 30.4, 192.0, 77.4, 56.5, 134.3, 84.9, 84~
+## $ path_efficiency        <dbl> 0.4277, 0.3767, 0.6208, 0.5592, 0.4969, 0.2865,~
+## $ movement_smoothness    <dbl> 0.7103, 0.7692, 0.6920, 0.7236, 0.7656, 0.5505,~
+## $ idle_time_pct          <dbl> 1.0, 8.6, 5.2, 5.0, 5.2, 6.0, 7.4, 4.0, 2.1, 6.~
+## $ tool_switching_per_min <dbl> 99.9, 89.4, 81.9, 66.2, 80.3, 132.6, 72.8, 58.7~
+## $ site_visibility_pct    <dbl> 78.7, 81.3, 72.0, 88.5, 92.7, 90.8, 84.3, 99.4,~
+## $ two_tools_pct          <dbl> 31.5, 36.9, 21.5, 39.2, 42.6, 38.1, 30.9, 35.7,~
+## $ speed                  <dbl> 1.4904, 0.9182, 1.2085, 0.9182, 1.2040, 2.0312,~
+## $ workspace_coverage     <dbl> 76.2, 62.0, 49.5, 52.0, 69.8, 56.9, 42.6, 69.8,~
+## $ composite_score        <dbl> 60.7, 65.7, 63.6, 68.8, 70.1, 57.3, 54.8, 65.7,~
+## $ complication           <int> 0, 0, 0, 0, 0, NA, 0, NA, 0, 0, NA, 0, 0, 0, 0,~
+## $ complication_severity  <chr> "", "", "", "", "", NA, "", NA, "", "", NA, "",~
+## $ complete_resection     <int> 1, 1, NA, 1, NA, NA, 1, NA, NA, NA, NA, 1, 1, N~
+## $ hospital_stay_days     <dbl> 1.6, 4.2, 3.2, 2.6, 3.2, NA, 2.5, NA, 1.7, 2.6,~
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{outcome\_matrix }\OtherTok{\textless{}{-}} \FunctionTok{clean\_names}\NormalTok{(outcome\_matrix)}
+
+\CommentTok{\# na values checking }
+\FunctionTok{colSums}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(outcome\_matrix)) }\CommentTok{\# Count NAs per column}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           procedure_id             surgeon_id   procedure_length_min 
+##                      0                      0                      0 
+##        path_efficiency    movement_smoothness          idle_time_pct 
+##                      0                      0                      0 
+## tool_switching_per_min    site_visibility_pct          two_tools_pct 
+##                      0                      0                      0 
+##                  speed     workspace_coverage        composite_score 
+##                      0                      0                      0 
+##           complication  complication_severity     complete_resection 
+##                    180                    180                    218 
+##     hospital_stay_days 
+##                    180
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mean\_na }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(outcome\_matrix)) }\CommentTok{\# Calculate total proportion}
+\NormalTok{mean\_na }\CommentTok{\# overall we 15.7\% NA in data (ITS STILL IR RELEVENT) (as we need all the data) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.1579167
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# checking duplicate values }
+\NormalTok{outcome\_matrix[}\FunctionTok{duplicated}\NormalTok{(outcome\_matrix), ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] procedure_id           surgeon_id             procedure_length_min  
+##  [4] path_efficiency        movement_smoothness    idle_time_pct         
+##  [7] tool_switching_per_min site_visibility_pct    two_tools_pct         
+## [10] speed                  workspace_coverage     composite_score       
+## [13] complication           complication_severity  complete_resection    
+## [16] hospital_stay_days    
+## <0 rows> (or 0-length row.names)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# no duplicate found in data set}
+\end{Highlighting}
+\end{Shaded}
+
+\section{1 visuals}\label{visuals}
+
+\subsection{Composite Score
+Distribution}\label{composite-score-distribution}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create a ggplot histogram}
+\NormalTok{p }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(outcome\_matrix, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ composite\_score)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{30}\NormalTok{, }\AttributeTok{fill =} \StringTok{"blue"}\NormalTok{, }\AttributeTok{color =} \StringTok{"white"}\NormalTok{)}
+
+\CommentTok{\# Convert to interactive plotly object}
+\FunctionTok{ggplotly}\NormalTok{(p)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{SDSC_files/figure-latex/unnamed-chunk-6-1.pdf}}
+Insight: Are most procedures high-performing?( Yes looks like it most of
+the procedures high-performing ) Is there a binomial distribution? (
+almost binomial distribution) is this skewed ? ) (Nah)
+
+\subsection{Complication vs Composite
+Score}\label{complication-vs-composite-score}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{box\_plot }\OtherTok{\textless{}{-}} \FunctionTok{plot\_ly}\NormalTok{(outcome\_matrix, }\AttributeTok{x =} \SpecialCharTok{\textasciitilde{}}\NormalTok{outcome\_matrix}\SpecialCharTok{$}\NormalTok{complication, }\AttributeTok{y =} \SpecialCharTok{\textasciitilde{}}\NormalTok{outcome\_matrix}\SpecialCharTok{$}\NormalTok{composite\_score, }\AttributeTok{type =} \StringTok{"box"}\NormalTok{)}
+\NormalTok{box\_plot}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Ignoring 180 observations
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{SDSC_files/figure-latex/unnamed-chunk-7-1.pdf}}
+
+alright (Most important clinical insight) Now we can when there is no
+complication the median value is 64.6 for a composite And the Max it
+goes 79.6 The composite score which is not bad. The box PL like a bell
+shaped curve. However when there is some complication found it looks
+like it's skewed to the left and even though in that situation the low
+composite score is still higher when there is no complication which is
+57 but the Max value is 75 composite score. One can play very safe with
+zero complication but still with the complication the composite score is
+quite not bad.
+
+\subsection{Procedure Length vs
+Complication}\label{procedure-length-vs-complication}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fit }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(complication}\SpecialCharTok{\textasciitilde{}}\NormalTok{ ., }\AttributeTok{data =}\NormalTok{ outcome\_matrix)}
+
+\NormalTok{a11\_1 }\OtherTok{\textless{}{-}} \FunctionTok{plot\_ly}\NormalTok{(}\AttributeTok{data =}\NormalTok{ outcome\_matrix, }\AttributeTok{x =} \SpecialCharTok{\textasciitilde{}}\NormalTok{procedure\_length\_min, }\AttributeTok{y =} \SpecialCharTok{\textasciitilde{}}\NormalTok{hospital\_stay\_days, }\AttributeTok{type =} \StringTok{"scatter"}\NormalTok{, }\AttributeTok{mode =} \StringTok{"markers"}\NormalTok{,}\AttributeTok{color =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{as.factor}\NormalTok{(complication), }\AttributeTok{colors =} \StringTok{"Set1"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Now based on the scatter plot the X axis represent the procedure length
+in minutes on the Y axis is the hospital stay in One can definitely say
+here that the higher the length of procedure goes does not specifically
+represent that hire the hospital days. This also represents one thing
+that this both the phenomenon Co independent of each other. One can also
+interpret from this Higher the number of hospital days go higher the
+chances of complication rises
+
+\subsection{Correlation Heatmap}\label{correlation-heatmap}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{metric\_col }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{(outcome\_matrix,}
+\NormalTok{                     path\_efficiency,}
+\NormalTok{                     movement\_smoothness,}
+\NormalTok{                     idle\_time\_pct,}
+\NormalTok{                     tool\_switching\_per\_min,}
+\NormalTok{                     site\_visibility\_pct,}
+\NormalTok{                     two\_tools\_pct,}
+\NormalTok{                     speed,}
+\NormalTok{                     workspace\_coverage,}
+\NormalTok{                     composite\_score)}
+
+\NormalTok{M }\OtherTok{\textless{}{-}} \FunctionTok{cor}\NormalTok{(metric\_col, }\AttributeTok{use =} \StringTok{"complete.obs"}\NormalTok{)}
+\FunctionTok{corrplot}\NormalTok{(M, }\AttributeTok{method =} \StringTok{"color"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{SDSC_files/figure-latex/unnamed-chunk-9-1.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{corrplot}\NormalTok{(M, }\AttributeTok{method =} \StringTok{"color"}\NormalTok{, }\AttributeTok{type =} \StringTok{"upper"}\NormalTok{, }\AttributeTok{addCoef.col =} \StringTok{"black"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{SDSC_files/figure-latex/unnamed-chunk-9-2.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# One can definitely say from this heat map that there is no strong correlation found between variables even with the composite score the maximum number of correlation is with the path efficiency nothing else seems to be highly correlated. }
+\CommentTok{\# Positive correlations among surgical quality metrics}
+\CommentTok{\# Negative correlation with idle time}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Surgeon Performance
+Comparison}\label{surgeon-performance-comparison}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Sample Data Preparation}
+\NormalTok{df }\OtherTok{\textless{}{-}}\NormalTok{ outcome\_matrix}
+\NormalTok{surgeon\_data }\OtherTok{\textless{}{-}}\NormalTok{ df }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(surgeon\_id) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{avg\_comp\_score =} \FunctionTok{mean}\NormalTok{(composite\_score),}
+     \AttributeTok{avg\_complications =} \FunctionTok{mean}\NormalTok{(complication),}\AttributeTok{avg\_duration =} \FunctionTok{mean}\NormalTok{(procedure\_length\_min)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pivot\_longer}\NormalTok{(}\AttributeTok{cols =} \SpecialCharTok{{-}}\NormalTok{surgeon\_id, }\AttributeTok{names\_to =} \StringTok{"metric"}\NormalTok{, }\AttributeTok{values\_to =} \StringTok{"value"}\NormalTok{)}
+
+\CommentTok{\# Visualization}
+\NormalTok{ggp }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(surgeon\_data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ surgeon\_id, }\AttributeTok{y =}\NormalTok{ value, }\AttributeTok{fill =}\NormalTok{ surgeon\_id)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{metric, }\AttributeTok{scales =} \StringTok{"free\_y"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Surgeon Performance Comparison"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Average Value"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Surgeon ID"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{))}
+\FunctionTok{ggplotly}\NormalTok{(ggp)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{SDSC_files/figure-latex/unnamed-chunk-10-1.pdf}}
+
+\subsection{Complication Severity
+Breakdown}\label{complication-severity-breakdown}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(plotly)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+
+\CommentTok{\# Summarize data}
+\NormalTok{plot\_data }\OtherTok{\textless{}{-}}\NormalTok{ outcome\_matrix }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(surgeon\_id,complication\_severity) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count =} \FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'surgeon_id'. You can override using the
+## `.groups` argument.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fig }\OtherTok{\textless{}{-}} \FunctionTok{plot\_ly}\NormalTok{(plot\_data, }\AttributeTok{x =} \SpecialCharTok{\textasciitilde{}}\NormalTok{surgeon\_id, }\AttributeTok{y =} \SpecialCharTok{\textasciitilde{}}\NormalTok{count, }\AttributeTok{type =} \StringTok{\textquotesingle{}bar\textquotesingle{}}\NormalTok{, }
+               \AttributeTok{name =} \SpecialCharTok{\textasciitilde{}}\NormalTok{complication\_severity, }\AttributeTok{color =} \SpecialCharTok{\textasciitilde{}}\NormalTok{complication\_severity) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{layout}\NormalTok{(}\AttributeTok{barmode =} \StringTok{\textquotesingle{}stack\textquotesingle{}}\NormalTok{,}
+         \AttributeTok{title =} \StringTok{\textquotesingle{}Complication Severity Breakdown by Clinical Outcome\textquotesingle{}}\NormalTok{,}
+         \AttributeTok{xaxis =} \FunctionTok{list}\NormalTok{(}\AttributeTok{title =} \StringTok{\textquotesingle{}Clinical Outcome\textquotesingle{}}\NormalTok{),}
+         \AttributeTok{yaxis =} \FunctionTok{list}\NormalTok{(}\AttributeTok{title =} \StringTok{\textquotesingle{}Number of Patients\textquotesingle{}}\NormalTok{))}
+
+\NormalTok{fig}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{SDSC_files/figure-latex/unnamed-chunk-11-1.pdf}}
+
+One can clearly see top 10 surgeons here and they have plotted on the Y
+axis that the number of patients they have handled over the time span.
+One can clearly say surgeon 7 has the highest number of patients lowest
+complication including mild 1. One can also say that the surgeon 2 is
+not a good surgeon because he had many complication over his time with
+mild moderate. Surgeon 3 has the one and only one Severe complication
+And he has turn on overall 8 patients.
+
+\subsection{Hospital Stay vs Composite
+Score}\label{hospital-stay-vs-composite-score}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Shows operational efficiency impacts.}
+\CommentTok{\# Visualization: Scatter plot}
+
+\CommentTok{\# Using the built{-}in \textquotesingle{}mtcars\textquotesingle{} dataset}
+\NormalTok{pp }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(outcome\_matrix, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ hospital\_stay\_days, }\AttributeTok{y =}\NormalTok{ composite\_score,}\AttributeTok{color =}\NormalTok{ complication\_severity)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_point}\NormalTok{()}
+\FunctionTok{ggplotly}\NormalTok{(pp)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{SDSC_files/figure-latex/unnamed-chunk-12-1.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Better surgical metrics → shorter stays}
+\end{Highlighting}
+\end{Shaded}
+
+One plane clearly see from the scatter plot that if the number of
+hospital days increases for a patient the composite score also tends to
+decrease On the same time one can also say the number of complexities
+severity higher is the number of stays in days is higher.
+
+\section{---------------------------}\label{section}
+
+\section{6. Linear Model:}\label{linear-model}
+
+\section{---------------------------}\label{section-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model1 }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(composite\_score }\SpecialCharTok{\textasciitilde{}}\NormalTok{ path\_efficiency }\SpecialCharTok{+}
+\NormalTok{               movement\_smoothness }\SpecialCharTok{+}
+\NormalTok{               idle\_time\_pct }\SpecialCharTok{+}
+\NormalTok{               tool\_switching\_per\_min }\SpecialCharTok{+}
+\NormalTok{               site\_visibility\_pct }\SpecialCharTok{+}
+\NormalTok{               two\_tools\_pct }\SpecialCharTok{+}
+\NormalTok{               speed }\SpecialCharTok{+}
+\NormalTok{               workspace\_coverage,}
+             \AttributeTok{data =}\NormalTok{ outcome\_matrix )}
+
+\FunctionTok{summary}\NormalTok{(model1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = composite_score ~ path_efficiency + movement_smoothness + 
+##     idle_time_pct + tool_switching_per_min + site_visibility_pct + 
+##     two_tools_pct + speed + workspace_coverage, data = outcome_matrix)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -8.4306 -2.0536  0.1121  1.9984  7.6329 
+## 
+## Coefficients:
+##                         Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)            33.975406   3.264845  10.406  < 2e-16 ***
+## path_efficiency        17.173910   1.385391  12.396  < 2e-16 ***
+## movement_smoothness    10.179671   2.996076   3.398 0.000774 ***
+## idle_time_pct          -0.360611   0.080154  -4.499 9.88e-06 ***
+## tool_switching_per_min -0.058815   0.005172 -11.372  < 2e-16 ***
+## site_visibility_pct     0.197533   0.025907   7.625 3.49e-13 ***
+## two_tools_pct           0.134340   0.017013   7.896 5.92e-14 ***
+## speed                  -3.072803   0.325590  -9.438  < 2e-16 ***
+## workspace_coverage      0.086914   0.013836   6.282 1.22e-09 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 2.911 on 291 degrees of freedom
+## Multiple R-squared:  0.7575, Adjusted R-squared:  0.7509 
+## F-statistic: 113.6 on 8 and 291 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# }
+\DocumentationTok{\#\# equation: 33.9 + 17.17*path\_eff + 10.17*movement\_smooth {-}0.36* idle\_time\_pct}
+\DocumentationTok{\#\#              {-}0.05*tool\_swtic +0.19*site\_visi + 0.13*two\_tools {-} 3.07*speed}
+\DocumentationTok{\#\#              + 0.08*wrokspace\_coverage}
+
+\CommentTok{\# Interpretation for speed. }
+\CommentTok{\# Every unit increase speed the composite score will be decreasing by 3.07 units.}
+\CommentTok{\# That means higher the speed goes lower the composite score is gonna go.}
+
+\CommentTok{\# One can also say that all the P values less than 0.05 that means it is statistically significant to keep all the variables. }
+
+\CommentTok{\# This also Implies that we reject the null hypothesis and accept the alternate hypothesis that means there some between the composite variables and the other variables.}
+
+
+\CommentTok{\# Standardized coefficients}
+\FunctionTok{library}\NormalTok{(lm.beta)}
+\FunctionTok{lm.beta}\NormalTok{(model1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = composite_score ~ path_efficiency + movement_smoothness + 
+##     idle_time_pct + tool_switching_per_min + site_visibility_pct + 
+##     two_tools_pct + speed + workspace_coverage, data = outcome_matrix)
+## 
+## Standardized Coefficients::
+##            (Intercept)        path_efficiency    movement_smoothness 
+##                     NA              0.3851887              0.1058004 
+##          idle_time_pct tool_switching_per_min    site_visibility_pct 
+##             -0.1383308             -0.3395046              0.2301624 
+##          two_tools_pct                  speed     workspace_coverage 
+##              0.2317645             -0.2732968              0.1846939
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Path Efficiency (0.385): This is your strongest positive predictor. For every 1 SD increase in efficiency, the outcome increases by \textasciitilde{}0.39 SD.}
+\CommentTok{\# Tool Switching per Min ({-}0.339): This is your strongest negative predictor. High rates of tool switching significantly lower the outcome.}
+\CommentTok{\# Speed ({-}0.273): Interestingly, higher speed is associated with a decrease in your outcome.}
+
+\CommentTok{\# Multicollinearity check}
+\FunctionTok{vif}\NormalTok{(model1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        path_efficiency    movement_smoothness          idle_time_pct 
+##               1.158759               1.163729               1.134618 
+## tool_switching_per_min    site_visibility_pct          two_tools_pct 
+##               1.069781               1.093620               1.033941 
+##                  speed     workspace_coverage 
+##               1.006427               1.037428
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# VIF = 1: Not correlated.1 \textless{} VIF \textless{} 5: Moderately correlated.}
+\CommentTok{\# sooooooooooo not much of correlation here}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{t-test}\label{t-test}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{outcome\_matrix }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(complication) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}
+    \AttributeTok{mean\_score =} \FunctionTok{mean}\NormalTok{(composite\_score, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{sd\_score =} \FunctionTok{sd}\NormalTok{(composite\_score, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{n =} \FunctionTok{n}\NormalTok{()}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 4
+##   complication mean_score sd_score     n
+##          <int>      <dbl>    <dbl> <int>
+## 1            0       64.5     5.92   109
+## 2            1       67.6     6.06    11
+## 3           NA       64.6     5.75   180
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#complication   mean\_score  sd\_score    n}
+\CommentTok{\#  0              64.48716  5.920024    109     }
+\CommentTok{\#  1              67.59091  6.055321    11  }
+\CommentTok{\#  NA               64.58444    5.750626    180 }
+
+\CommentTok{\# All the mean values for the complication looks close enough Even the standard deviation is close enough for the no complication for complication or for nothing. }
+\CommentTok{\# However the sample varies a lot for no complication and for yes complication But this is a real data so we cannot do much here.}
+
+
+\CommentTok{\# T{-}test}
+\CommentTok{\# Syntax: t.test(dependent\_var \textasciitilde{} independent\_var, data = my\_dataframe)}
+\FunctionTok{t.test}\NormalTok{(composite\_score }\SpecialCharTok{\textasciitilde{}}\NormalTok{ complication,}\AttributeTok{data =}\NormalTok{ outcome\_matrix)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Welch Two Sample t-test
+## 
+## data:  composite_score by complication
+## t = -1.6235, df = 12.012, p-value = 0.1304
+## alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0
+## 95 percent confidence interval:
+##  -7.268698  1.061191
+## sample estimates:
+## mean in group 0 mean in group 1 
+##        64.48716        67.59091
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Now based on the conclusion one can say we failed to reject the null hypothesis.}
+\CommentTok{\#That means there is difference you see between the groups and could likely be due to randomness change rather than the complication itself}
+
+
+\CommentTok{\#So the T test value is {-}1.6235 that does imply how many standard errors the group means are from each other a smaller value is generally suggest that this is relatively small given the spread of the data.}
+
+\CommentTok{\#Looking at the degree of freedom it suggests the size of the data set is quite small which is very difficult or hard to prove a difference is significant unless the gap between these things is huge However we are dealing with the real life data and this is how things work So assuming all I said is true.}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{trying somehting new}\label{trying-somehting-new}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{table}\NormalTok{(outcome\_matrix}\SpecialCharTok{$}\NormalTok{surgeon\_id,}
+\NormalTok{      outcome\_matrix}\SpecialCharTok{$}\NormalTok{complete\_resection)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             
+##               0  1
+##   surgeon_01  0  5
+##   surgeon_02  2 15
+##   surgeon_03  1  4
+##   surgeon_04  0  5
+##   surgeon_05  0  2
+##   surgeon_06  0  3
+##   surgeon_07  1 19
+##   surgeon_08  6 14
+##   surgeon_09  0  2
+##   surgeon_10  1  2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{complete\_resection\_overall\_info }\OtherTok{\textless{}{-}}\NormalTok{ outcome\_matrix }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(complete\_resection) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{mean\_score =} \FunctionTok{mean}\NormalTok{(composite\_score, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+    \AttributeTok{n =} \FunctionTok{n}\NormalTok{()}
+\NormalTok{  )}
+\NormalTok{complete\_resection\_overall\_info}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 3
+##   complete_resection mean_score     n
+##                <int>      <dbl> <int>
+## 1                  0       61.5    11
+## 2                  1       64.9    71
+## 3                 NA       64.7   218
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Logistic regression}
+\NormalTok{resection\_model }\OtherTok{\textless{}{-}} \FunctionTok{glm}\NormalTok{( complete\_resection }\SpecialCharTok{\textasciitilde{}}\NormalTok{ composite\_score }\SpecialCharTok{+}
+\NormalTok{                          procedure\_length\_min }\SpecialCharTok{+}
+                          \FunctionTok{factor}\NormalTok{(surgeon\_id),}
+                        \AttributeTok{data =}\NormalTok{ outcome\_matrix,}
+                        \AttributeTok{family =}\NormalTok{ binomial )}
+
+\FunctionTok{summary}\NormalTok{(resection\_model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = complete_resection ~ composite_score + procedure_length_min + 
+##     factor(surgeon_id), family = binomial, data = outcome_matrix)
+## 
+## Coefficients:
+##                                Estimate Std. Error z value Pr(>|z|)
+## (Intercept)                   1.946e+01  2.917e+03   0.007    0.995
+## composite_score              -1.286e-02  8.954e-02  -0.144    0.886
+## procedure_length_min          2.115e-04  6.115e-03   0.035    0.972
+## factor(surgeon_id)surgeon_02 -1.659e+01  2.917e+03  -0.006    0.995
+## factor(surgeon_id)surgeon_03 -1.730e+01  2.917e+03  -0.006    0.995
+## factor(surgeon_id)surgeon_04 -3.155e-02  4.125e+03   0.000    1.000
+## factor(surgeon_id)surgeon_05 -1.298e-01  5.456e+03   0.000    1.000
+## factor(surgeon_id)surgeon_06 -3.994e-02  4.763e+03   0.000    1.000
+## factor(surgeon_id)surgeon_07 -1.570e+01  2.917e+03  -0.005    0.996
+## factor(surgeon_id)surgeon_08 -1.789e+01  2.917e+03  -0.006    0.995
+## factor(surgeon_id)surgeon_09 -9.684e-02  5.457e+03   0.000    1.000
+## factor(surgeon_id)surgeon_10 -1.801e+01  2.917e+03  -0.006    0.995
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 64.648  on 81  degrees of freedom
+## Residual deviance: 53.491  on 70  degrees of freedom
+##   (218 observations deleted due to missingness)
+## AIC: 77.491
+## 
+## Number of Fisher Scoring iterations: 17
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{exp}\NormalTok{(}\FunctionTok{coef}\NormalTok{(resection\_model))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                  (Intercept)              composite_score 
+##                 2.831796e+08                 9.872248e-01 
+##         procedure_length_min factor(surgeon_id)surgeon_02 
+##                 1.000211e+00                 6.222469e-08 
+## factor(surgeon_id)surgeon_03 factor(surgeon_id)surgeon_04 
+##                 3.053430e-08                 9.689454e-01 
+## factor(surgeon_id)surgeon_05 factor(surgeon_id)surgeon_06 
+##                 8.782397e-01                 9.608515e-01 
+## factor(surgeon_id)surgeon_07 factor(surgeon_id)surgeon_08 
+##                 1.520408e-07                 1.701383e-08 
+## factor(surgeon_id)surgeon_09 factor(surgeon_id)surgeon_10 
+##                 9.076988e-01                 1.500922e-08
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# new way to approach }
+\CommentTok{\# Firth" Logistic Regression}
+\CommentTok{\#install.packages("logistf")}
+\FunctionTok{library}\NormalTok{(logistf)}
+
+\NormalTok{firth\_model }\OtherTok{\textless{}{-}} \FunctionTok{logistf}\NormalTok{(complete\_resection }\SpecialCharTok{\textasciitilde{}}\NormalTok{ composite\_score }\SpecialCharTok{+}\NormalTok{ procedure\_length\_min }\SpecialCharTok{+}\NormalTok{ surgeon\_id,}\AttributeTok{data =}\NormalTok{ outcome\_matrix)}
+
+\FunctionTok{summary}\NormalTok{(firth\_model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## logistf(formula = complete_resection ~ composite_score + procedure_length_min + 
+##     surgeon_id, data = outcome_matrix)
+## 
+## Model fitted by Penalized ML
+## Coefficients:
+##                               coef    se(coef)  lower 0.95  upper 0.95
+## (Intercept)           3.0400111233 5.298235097 -8.46307379 14.71396714
+## composite_score      -0.0088696751 0.071311135 -0.16567743  0.14738047
+## procedure_length_min -0.0002126893 0.005011981 -0.01064636  0.01115202
+## surgeon_idsurgeon_02 -0.6196885957 1.630893324 -5.61870746  2.13481553
+## surgeon_idsurgeon_03 -1.3860619924 1.868024155 -6.59857745  2.09914181
+## surgeon_idsurgeon_04 -0.0944101601 2.045522565 -5.39666436  5.20732940
+## surgeon_idsurgeon_05 -0.8802515125 2.234245498 -6.38139581  4.62065604
+## surgeon_idsurgeon_06 -0.4794066380 2.117704290 -5.83934376  4.87501396
+## surgeon_idsurgeon_07  0.0455488360 1.731589045 -5.03747103  3.25278997
+## surgeon_idsurgeon_08 -1.7280356846 1.798728241 -6.90755324  1.48945951
+## surgeon_idsurgeon_09 -0.8716829665 2.184388800 -6.32268991  4.56360032
+## surgeon_idsurgeon_10 -2.0010591805 1.957831721 -7.31656813  1.71401010
+##                             Chisq         p method
+## (Intercept)          0.2756205646 0.5995861      2
+## composite_score      0.0128742102 0.9096622      2
+## procedure_length_min 0.0015698873 0.9683946      2
+## surgeon_idsurgeon_02 0.1576019847 0.6913740      2
+## surgeon_idsurgeon_03 0.5881752519 0.4431256      2
+## surgeon_idsurgeon_04 0.0020516451 0.9638721      2
+## surgeon_idsurgeon_05 0.1485069191 0.6999663      2
+## surgeon_idsurgeon_06 0.0500354359 0.8230016      2
+## surgeon_idsurgeon_07 0.0006688458 0.9793674      2
+## surgeon_idsurgeon_08 1.0241584840 0.3115346      2
+## surgeon_idsurgeon_09 0.1523750396 0.6962759      2
+## surgeon_idsurgeon_10 1.1072097457 0.2926893      2
+## 
+## Method: 1-Wald, 2-Profile penalized log-likelihood, 3-None
+## 
+## Likelihood ratio test=6.353401 on 11 df, p=0.8487748, n=82
+## Wald test = 29.94183 on 11 df, p = 0.001618262
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# it means the "signal" in your data is very weak.}
+\CommentTok{\# Essentially, composite\_score and procedure\_length\_min do not correlate with whether a resection is successful in this specific }
+\CommentTok{\# High Success Rate: You have \textasciitilde{}71 successes and only 11 failures. When the outcome is almost always the same (success), there isn\textquotesingle{}t enough "variance" for the model to find a pattern.}
+\CommentTok{\# I am still ignoring those 218 NaN observations. In a small dataset, losing 70\% of your rows is usually fatal for statistical significance.}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}
