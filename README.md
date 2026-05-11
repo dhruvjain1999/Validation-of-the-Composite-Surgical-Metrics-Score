@@ -1,5 +1,3 @@
-# Validation-of-the-Composite-Surgical-Metrics-Score
-
 <!-- Hire Me Banner -->
 <p align="center">
   <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZDhiZG1xM3FkN2Zobm00ZHA3b2VscjBkcWpwbXk2Y3kwaTQ3NDZkayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FH9xzq6w8OSEA1AJe2/giphy.gif" width="300" alt="Hire Me"/>
