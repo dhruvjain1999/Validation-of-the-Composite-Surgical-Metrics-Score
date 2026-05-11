@@ -35,11 +35,8 @@ This project focuses on the **statistical validation** of the **Composite Surgic
 - 📈 Visualize patterns and trends across surgical metrics
 - 📝 Generate a comprehensive research report with findings
 
----
-
 ## 🗂️ Project Structure
 
----
 
 ## 🛠️ Tech Stack
 
