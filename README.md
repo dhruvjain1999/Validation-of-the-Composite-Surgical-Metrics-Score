@@ -38,8 +38,8 @@ This project focuses on the **statistical validation** of the **Composite Surgic
 | 🐍 Python | Core programming language |
 | 📓 Jupyter Notebook | Interactive data analysis |
 | 📊 Pandas / NumPy | Data manipulation |
-| 📉 Matplotlib / Seaborn | Data visualization |
-| 🔬 SciPy / Statsmodels | Statistical testing & validation |
+| 📉 R / ggplot | Data visualization |
+| 🔬 R / Plotly | Statistical testing & validation |
 | 📝 LaTeX / TeX | Report formatting |
 
 ---
