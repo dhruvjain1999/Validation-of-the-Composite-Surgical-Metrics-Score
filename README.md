@@ -14,7 +14,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Language-Python-blue?style=for-the-badge&logo=python"/>
-  <img src="https://img.shields.io/badge/Notebook-Jupyter-orange?style=for-the-badge&logo=jupyter"/>
+  <img src="https://www.clipartmax.com/middle/m2H7H7d3A0N4H7N4_1-check-for-version-updates-logo-r-studio/"/>
   <img src="https://img.shields.io/badge/Domain-Healthcare%20Analytics-green?style=for-the-badge&logo=health"/>
   <img src="https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge"/>
 </p>
