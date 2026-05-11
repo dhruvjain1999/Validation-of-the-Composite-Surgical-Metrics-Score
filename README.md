@@ -1,7 +1,7 @@
 <!-- Hire Me Banner -->
 <p align="center">
   <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZDhiZG1xM3FkN2Zobm00ZHA3b2VscjBkcWpwbXk2Y3kwaTQ3NDZkayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FH9xzq6w8OSEA1AJe2/giphy.gif" width="300" alt="Hire Me"/>
-  <img src=" https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeXNxemJwbjlxMTdkcDl3cTk3NHdjdzdpZjY5MDVybmllZW9qOHJ4ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vtFD7SOw5XdzDR0PB0/giphy.gif" width="100" alt="Hire Me"/>
+  <img src=" https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMG4xN2p0MXVnOGlxZ2c5eWpjYzFxa2sxYjBocTdzd3lwbXpza3cycyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/CjmvTCZf2U3p09Cn0h/giphy.gif" width="100" alt="Hire Me"/>
  
 </p>
 
