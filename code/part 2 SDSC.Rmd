@@ -31,11 +31,21 @@ library(broom)
 ```
 
 
+
 # Data Importing  
-```{r}
-clinical <- read.csv("./Copy of ds_take_home_clinical_outcomes.csv - Sheet1.csv")
-procedure <- read.csv("./ds_take_home_procedure_metrics.csv - Sheet1.csv")
+```{r setup, include=FALSE}
+# dynamically configures the input directory via an interactive file explorer. 
+# eliminates the need for hardcoded file paths or technical code adjustments.
+
+my_file_path <- file.choose("Copy of ds_take_home_clinical_outcomes.csv - Sheet1.csv")
+clinical <- read.csv(my_file_path)
+
+
+
+my_file_path_pro <- file.choose("ds_take_home_procedure_metrics.csv - Sheet1.csv")
+procedure <- read.csv(my_file_path_pro)
 ```
+
 
 # 1st data checking
 ```{r}
